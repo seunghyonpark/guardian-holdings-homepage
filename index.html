@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guardian Holdings | BNB Chain 스마트 계정 결제 인프라</title>
+    <meta
+      name="description"
+      content="Guardian Holdings는 ERC-4337 스마트 계정, 자동 트랜잭션 실행, 가스 최적화 배칭을 기반으로 BNB Chain 결제와 정산 흐름을 지원하는 온체인 결제 인프라입니다."
+    />
+    <meta
+      property="og:title"
+      content="Guardian Holdings | 스마트 계정 기반 온체인 결제 인프라"
+    />
+    <meta
+      property="og:description"
+      content="ERC-4337 스마트 계정, 자동 트랜잭션 실행, 가스 최적화 배칭으로 BNB Chain 결제와 정산 흐름을 자동화합니다."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Guardian Holdings 홈">
+        <img src="./assets/guardian/logo-white.svg" alt="Guardian Holdings" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="주 메뉴">
+        <a href="#infrastructure">Infrastructure</a>
+        <a href="#proof">Proof</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#use-cases">Use Cases</a>
+      </nav>
+
+      <a
+        class="header-cta"
+        href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="BscScan에서 Guardian Holdings 주요 지갑 주소 새 창으로 열기"
+      >
+        BscScan 확인
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="메뉴 열기"
+        data-menu-toggle
+      >
+        <span aria-hidden="true">&nbsp;</span>
+        <span aria-hidden="true">&nbsp;</span>
+        <span aria-hidden="true">&nbsp;</span>
+      </button>
+    </header>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="모바일 메뉴" hidden data-mobile-menu>
+      <a href="#infrastructure" data-menu-link>Infrastructure</a>
+      <a href="#proof" data-menu-link>Proof</a>
+      <a href="#architecture" data-menu-link>Architecture</a>
+      <a href="#use-cases" data-menu-link>Use Cases</a>
+      <a
+        href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-menu-link
+      >
+        BscScan 확인
+      </a>
+    </nav>
+
+    <main id="home">
+      <section class="hero-section">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">BNB Chain Payment Infrastructure</p>
+            <h1>스마트 계정 기반 온체인 결제 인프라</h1>
+            <p class="hero-lead">
+              Guardian Holdings는 ERC-4337 스마트 계정, 자동 트랜잭션 실행, 가스
+              최적화 배칭을 결합해 BNB Chain 기반 결제와 정산 흐름을 자동화합니다.
+            </p>
+            <p class="hero-proof">
+              6개월 이상 실제 운영 환경에서 지속적인 트랜잭션 활동을 만들어 온
+              프로덕션 기반 인프라입니다.
+            </p>
+
+            <div class="hero-actions" aria-label="주요 행동">
+              <a class="button primary" href="#infrastructure">인프라 보기</a>
+              <a
+                class="button secondary"
+                href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                온체인 기록 확인
+              </a>
+            </div>
+          </div>
+
+          <aside class="status-panel" aria-label="Guardian Holdings 인프라 상태">
+            <div class="panel-topline">
+              <span>Infrastructure Status</span>
+              <span class="status-pill">Production</span>
+            </div>
+            <div class="status-grid">
+              <div class="status-row">
+                <span>Status</span>
+                <strong>Production</strong>
+              </div>
+              <div class="status-row">
+                <span>Network</span>
+                <strong>BNB Chain</strong>
+              </div>
+              <div class="status-row">
+                <span>Standard</span>
+                <strong>ERC-4337</strong>
+              </div>
+              <div class="status-row">
+                <span>Primary Wallet</span>
+                <strong>0xa935...b79</strong>
+              </div>
+            </div>
+            <div class="activity-visual" aria-hidden="true">
+              <div class="activity-line is-high"></div>
+              <div class="activity-line"></div>
+              <div class="activity-line is-mid"></div>
+              <div class="activity-line is-low"></div>
+              <div class="activity-line is-high"></div>
+              <div class="activity-line is-mid"></div>
+              <div class="activity-line"></div>
+              <div class="activity-line is-high"></div>
+            </div>
+            <p class="panel-note">Smart Account · Automated Execution · BNB Chain</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="metrics-section" aria-label="Guardian Holdings 인프라 운영 지표">
+        <div class="container metrics-grid">
+          <article class="metric-card">
+            <strong>6개월+</strong>
+            <span>프로덕션 운영</span>
+          </article>
+          <article class="metric-card">
+            <strong>실사용</strong>
+            <span>운영 트래픽</span>
+          </article>
+          <article class="metric-card">
+            <strong>고빈도</strong>
+            <span>지속 트랜잭션</span>
+          </article>
+          <article class="metric-card">
+            <strong>가스 기여</strong>
+            <span>네트워크 사용량</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="infrastructure" class="section">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">The Infrastructure</p>
+            <h2>결제 실행을 하나의 흐름으로 자동화</h2>
+            <p>
+              스마트 계정, 트랜잭션 오케스트레이션, 가스 최적화 배칭을 결합해
+              플랫폼의 온체인 결제와 정산 흐름을 자동화합니다.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-icon">01</span>
+              <h3>ERC-4337 스마트 계정</h3>
+              <p>프로그래머블 지갑으로 결제 로직을 실행합니다.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon">02</span>
+              <h3>자동 실행</h3>
+              <p>반복 결제와 정산 트랜잭션을 자동 처리합니다.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon">03</span>
+              <h3>가스 최적화 배칭</h3>
+              <p>대량 트랜잭션을 효율적으로 묶어 실행합니다.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon">04</span>
+              <h3>BNB Chain 정산</h3>
+              <p>결제와 정산 활동을 BNB Chain에서 처리합니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container split-layout">
+          <div class="section-header compact">
+            <p class="eyebrow">Capabilities</p>
+            <h2>플랫폼을 위한 결제 백엔드</h2>
+            <p>
+              Guardian Holdings는 결제와 정산이 필요한 플랫폼 뒤에서 동작하는
+              백엔드 인프라입니다.
+            </p>
+          </div>
+
+          <div class="capability-list">
+            <div>프로그래머블 지갑 운영 구조</div>
+            <div>자동화된 온체인 결제 실행</div>
+            <div>대량 트랜잭션 배칭</div>
+            <div>정산 워크플로우 인프라</div>
+            <div>BNB Chain 기반 실행</div>
+            <div>운영 환경에서 검증된 구조</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" class="section proof-section">
+        <div class="container proof-layout">
+          <div class="section-header compact">
+            <p class="eyebrow">Proof of Production</p>
+            <h2>온체인에서 확인 가능한 운영 기록</h2>
+            <p>
+              Guardian Holdings의 인프라는 데모가 아니라 실제 운영 시스템입니다.
+              6개월 이상 BNB Chain에서 지속적인 트랜잭션 활동과 가스 사용을 만들어
+              왔으며, 주요 지갑은 BscScan에서 직접 확인할 수 있습니다.
+            </p>
+            <ul class="proof-list">
+              <li>6개월 이상 운영</li>
+              <li>지속적인 트랜잭션</li>
+              <li>꾸준한 가스 사용</li>
+              <li>ERC-4337 실사용</li>
+              <li>BscScan 검증 가능</li>
+            </ul>
+          </div>
+
+          <aside class="wallet-card" aria-label="Primary Wallet">
+            <span class="wallet-label">Primary Wallet</span>
+            <strong class="wallet-address" data-wallet-address>
+              0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79
+            </strong>
+            <span class="wallet-network">BNB Chain</span>
+            <div class="wallet-actions">
+              <button class="button secondary compact-button" type="button" data-copy-wallet>
+                주소 복사
+              </button>
+              <a
+                class="button primary compact-button"
+                href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BscScan에서 보기
+              </a>
+            </div>
+            <p class="wallet-note">
+              최신 트랜잭션 활동과 가스 사용 내역은 BscScan에서 직접 확인하세요.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="architecture" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Architecture</p>
+            <h2>3계층 실행 구조</h2>
+            <p>
+              플랫폼이 복잡한 온체인 실행 로직을 직접 관리하지 않고도 반복 가능한
+              결제 흐름을 운영할 수 있도록 설계되었습니다.
+            </p>
+          </div>
+
+          <div class="architecture-flow" aria-label="스마트 계정, 오케스트레이션, BNB Chain 실행으로 이어지는 3계층 결제 인프라 구조">
+            <article class="architecture-card">
+              <span>01</span>
+              <h3>Account Layer</h3>
+              <p>ERC-4337 스마트 계정</p>
+            </article>
+            <article class="architecture-card">
+              <span>02</span>
+              <h3>Orchestration Layer</h3>
+              <p>결제·정산 자동 조율</p>
+            </article>
+            <article class="architecture-card">
+              <span>03</span>
+              <h3>Execution Layer</h3>
+              <p>BNB Chain 배칭 실행</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section impact-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Ecosystem Impact</p>
+            <h2>BNB Chain에 더하는 실제 사용량</h2>
+            <p>
+              자동화된 결제와 정산 트랜잭션을 통해 BNB Chain의 처리량과 가스 사용량에
+              지속적으로 기여하며, ERC-4337 계정 추상화의 실제 활용 사례를 만듭니다.
+            </p>
+          </div>
+
+          <div class="impact-grid">
+            <article>
+              <h3>Transaction Throughput</h3>
+              <p>자동화된 결제 흐름으로 네트워크 활동을 증가시킵니다.</p>
+            </article>
+            <article>
+              <h3>Gas Usage</h3>
+              <p>프로덕션 운영 과정에서 지속적인 가스 소비를 발생시킵니다.</p>
+            </article>
+            <article>
+              <h3>Account Abstraction</h3>
+              <p>ERC-4337 스마트 계정의 실제 활용 사례를 만듭니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="use-cases" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Use Cases</p>
+            <h2>반복 결제가 필요한 플랫폼을 위해</h2>
+          </div>
+
+          <div class="use-case-grid">
+            <article class="use-case-card">
+              <h3>결제 플랫폼</h3>
+              <p>사용자 결제 흐름을 온체인에서 자동 실행해야 하는 서비스</p>
+            </article>
+            <article class="use-case-card">
+              <h3>정산 사업자</h3>
+              <p>반복적인 지급과 정산 흐름을 운영하는 인프라 사업자</p>
+            </article>
+            <article class="use-case-card">
+              <h3>대량 트랜잭션 운영자</h3>
+              <p>지속적인 온체인 트랜잭션이 필요한 플랫폼</p>
+            </article>
+            <article class="use-case-card">
+              <h3>지갑 기반 서비스</h3>
+              <p>프로그래머블 지갑을 결제 실행 계층으로 활용하려는 서비스</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-layout">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>결제 인프라 도입을 논의하세요</h2>
+            <p>
+              BNB Chain 기반 온체인 결제와 정산 자동화가 필요한 플랫폼이라면
+              Guardian Holdings와 인프라 연동 가능성을 논의할 수 있습니다.
+            </p>
+          </div>
+          <div class="contact-panel">
+            <span>Guardian Holdings</span>
+            <strong>서울특별시 강남구 역삼로 546, 2층</strong>
+            <a href="tel:16701899">TEL. 1670-1899</a>
+            <a class="button primary" href="#proof">운영 지갑 검증하기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container final-cta-layout">
+          <div>
+            <p class="eyebrow">Ready for Production Payment Flow</p>
+            <h2>반복되는 온체인 결제를 자동화하세요</h2>
+            <p>
+              Guardian Holdings는 스마트 계정, 자동 실행, 가스 최적화 배칭으로
+              BNB Chain 기반 결제와 정산을 확장 가능하게 운영합니다.
+            </p>
+          </div>
+          <div class="final-actions">
+            <a class="button primary" href="#contact">문의하기</a>
+            <a
+              class="button secondary"
+              href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              온체인 활동 보기
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <img src="./assets/guardian/logo-white.svg" alt="Guardian Holdings" />
+          <p>BNB Chain 기반 스마트 계정 결제 및 정산 인프라</p>
+        </div>
+        <nav aria-label="푸터 메뉴">
+          <a href="#infrastructure">Infrastructure</a>
+          <a href="#proof">Proof</a>
+          <a href="#architecture">Architecture</a>
+          <a
+            href="https://bscscan.com/address/0xa9356206D2d5Ea04aE36632C4C75936F9882Bb79"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            BscScan
+          </a>
+        </nav>
+      </div>
+      <div class="container footer-bottom">
+        <p>
+          Guardian Holdings는 온체인 결제 및 정산 인프라를 제공합니다. 본 페이지의
+          내용은 투자 권유, 수익 보장, 금융 상품 안내가 아닙니다.
+        </p>
+        <small>&copy; Guardian Holdings. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/homepage.mjs"></script>
+  </body>
+</html>
