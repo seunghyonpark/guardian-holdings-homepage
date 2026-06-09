@@ -41,6 +41,16 @@ http://localhost:4173
 | POST | `/api/campaigns/:shareSlug/events` | 클릭/공유/전환 이벤트 기록 |
 | GET | `/api/advertiser/campaigns/:campaignId/report` | 캠페인 리포트 |
 
+## 공개 공유 페이지
+
+캠페인이 `active` 상태가 되면 아래 형태의 URL로 공개 페이지를 확인할 수 있다.
+
+```text
+http://localhost:4173/c/:shareSlug
+```
+
+공개 페이지의 `상품 보기`, `공유하기` 버튼은 각각 `click`, `share` 이벤트를 기록하고 진행률을 갱신한다.
+
 ## 현재 제약
 
 - 데이터는 서버 메모리에만 저장된다.

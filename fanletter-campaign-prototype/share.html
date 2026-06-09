@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FanLetter Campaign</title>
+    <meta name="description" content="FanLetter AI 캐릭터 상품 성장 캠페인 공유 페이지" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="share-page-body">
+    <main class="public-share-shell">
+      <section class="public-share-card" aria-live="polite">
+        <div class="public-visual" aria-label="AI 캐릭터 캠페인 장면">
+          <div class="public-phone">
+            <div class="public-scene">
+              <div class="window-shape"></div>
+              <div class="character-avatar" id="publicAvatar">F</div>
+              <div class="scene-product"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="public-content">
+          <p class="disclosure-line">광고 · AI 캐릭터 콘텐츠</p>
+          <p class="public-status" id="publicStatus">캠페인 불러오는 중</p>
+          <h1 id="publicTitle">FanLetter 캠페인</h1>
+          <p class="public-lead" id="publicLead">
+            상품 캠페인 정보를 불러오고 있습니다.
+          </p>
+
+          <div class="public-product">
+            <span id="publicCategory">Category</span>
+            <strong id="publicProduct">Product</strong>
+            <em id="publicBenefit">Benefit</em>
+          </div>
+
+          <div class="progress-block">
+            <div class="progress-header">
+              <span>목표 진행률</span>
+              <strong id="publicProgressText">0 / 500</strong>
+            </div>
+            <div class="progress-track">
+              <span id="publicProgressBar"></span>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <button class="primary-button" type="button" id="publicProductButton">상품 보기</button>
+            <button class="secondary-button" type="button" id="publicShareButton">공유하기</button>
+          </div>
+
+          <p class="public-note" id="publicNote">
+            FanLetter 캠페인은 광고주 상품과 AI 캐릭터 성장 이벤트를 연결합니다.
+          </p>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/share.js"></script>
+  </body>
+</html>

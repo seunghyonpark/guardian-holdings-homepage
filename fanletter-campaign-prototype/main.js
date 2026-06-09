@@ -390,11 +390,12 @@ function getQuestName(character, analysis) {
 function renderSharePreview(analysis) {
   const character = characters.find((item) => item.id === selectedCharacterId) || analysis.selected;
   const questName = getQuestName(character, analysis);
-  const slug = `${character.id}-${slugify(analysis.brand)}-${slugify(analysis.product)}`;
+  const slug = currentCampaign?.shareSlug || `${character.id}-${slugify(analysis.brand)}-${slugify(analysis.product)}`;
+  const shareUrl = `${window.location.origin}/c/${slug}`;
   const targetNumber = parseInt(analysis.shareTarget, 10) || 500;
   const percent = Math.min(100, Math.round((progressCount / targetNumber) * 100));
 
-  $("#shareUrl").textContent = `fanletter.ai/c/${slug}`;
+  $("#shareUrl").textContent = shareUrl;
   $("#avatarMark").textContent = character.mark;
   $("#shareTitle").textContent = `${character.name}의 ${questName}`;
   $("#shareBody").textContent = `팬들이 ${analysis.shareTarget} 목표를 달성하면 ${character.name}의 성장 스탯이 오르고 새 캠페인 브이로그가 열립니다.`;

@@ -484,7 +484,8 @@ async function handleApi(req, res, url) {
 
 async function serveStatic(req, res, url) {
   const pathname = url.pathname === "/" ? "/index.html" : url.pathname;
-  const normalizedPath = normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, "");
+  const routedPathname = /^\/c\/[^/]+$/.test(pathname) ? "/share.html" : pathname;
+  const normalizedPath = normalize(decodeURIComponent(routedPathname)).replace(/^(\.\.[/\\])+/, "");
   const filePath = join(__dirname, normalizedPath);
 
   if (!filePath.startsWith(__dirname) || !existsSync(filePath)) {
