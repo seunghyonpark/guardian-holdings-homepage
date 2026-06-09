@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FanLetter Campaign Agent</title>
+    <meta
+      name="description"
+      content="상품 URL을 AI 캐릭터 성장 캠페인으로 바꾸는 FanLetter 광고주용 프로토타입"
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="FanLetter 캠페인 메뉴">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">F</div>
+          <div>
+            <strong>FanLetter</strong>
+            <span>Campaign Agent</span>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="주요 화면">
+          <a class="is-active" href="#campaign-builder">캠페인 생성</a>
+          <a href="#character-match">캐릭터 매칭</a>
+          <a href="#campaign-brief">브리프</a>
+          <a href="#share-preview">공유링크</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span>1차 MVP</span>
+          <strong>상품 URL → 캐릭터 성장 캠페인</strong>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Advertiser Studio</p>
+            <h1>상품 URL로 캐릭터 성장 캠페인 만들기</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="status-badge" id="approvalStatus">Draft</span>
+            <button class="ghost-button" type="button" id="resetButton">초기화</button>
+          </div>
+        </header>
+
+        <section class="work-grid" id="campaign-builder">
+          <form class="builder-panel" id="campaignForm">
+            <div class="section-heading">
+              <p>Step 1</p>
+              <h2>상품 분석</h2>
+            </div>
+
+            <label class="field">
+              <span>상품 URL</span>
+              <input
+                id="productUrl"
+                name="productUrl"
+                type="url"
+                inputmode="url"
+                placeholder="https://brand.com/products/mini-air-cleaner"
+                value="https://brand.com/products/mini-air-cleaner"
+                required
+              />
+            </label>
+
+            <div class="form-grid">
+              <label class="field">
+                <span>브랜드</span>
+                <input id="brandName" name="brandName" type="text" value="Airly" />
+              </label>
+
+              <label class="field">
+                <span>상품명</span>
+                <input id="productName" name="productName" type="text" value="미니 공기청정기" />
+              </label>
+
+              <label class="field">
+                <span>가격</span>
+                <input id="priceAmount" name="priceAmount" type="text" value="49,000원" />
+              </label>
+
+              <label class="field">
+                <span>카테고리</span>
+                <select id="category" name="category">
+                  <option value="생활가전">생활가전</option>
+                  <option value="뷰티">뷰티</option>
+                  <option value="식품">식품</option>
+                  <option value="건강">건강</option>
+                  <option value="패션">패션</option>
+                  <option value="IT가젯">IT가젯</option>
+                  <option value="굿즈">굿즈</option>
+                </select>
+              </label>
+            </div>
+
+            <fieldset class="segmented-control" aria-label="캠페인 목표">
+              <legend>캠페인 목표</legend>
+              <label>
+                <input type="radio" name="campaignGoal" value="click" checked />
+                <span>클릭</span>
+              </label>
+              <label>
+                <input type="radio" name="campaignGoal" value="coupon" />
+                <span>쿠폰</span>
+              </label>
+              <label>
+                <input type="radio" name="campaignGoal" value="purchase" />
+                <span>구매</span>
+              </label>
+              <label>
+                <input type="radio" name="campaignGoal" value="live_view" />
+                <span>라방 유입</span>
+              </label>
+            </fieldset>
+
+            <div class="form-grid">
+              <label class="field">
+                <span>혜택</span>
+                <input id="benefitText" name="benefitText" type="text" value="10% 쿠폰, 무료배송" />
+              </label>
+
+              <label class="field">
+                <span>필수 문구</span>
+                <input id="requiredCopy" name="requiredCopy" type="text" value="작은 방과 책상 위 공간에 적합" />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>금지 문구</span>
+              <textarea id="prohibitedCopy" name="prohibitedCopy" rows="3">질병 예방, 의학적 효능, 미세먼지 완전 제거 표현 금지</textarea>
+            </label>
+
+            <div class="checkbox-row">
+              <label>
+                <input id="adDisclosure" type="checkbox" checked />
+                <span>광고 표시</span>
+              </label>
+              <label>
+                <input id="aiDisclosure" type="checkbox" checked />
+                <span>AI 캐릭터 콘텐츠 표시</span>
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button class="primary-button" type="submit">상품 분석</button>
+              <button class="secondary-button" type="button" id="submitApprovalButton">
+                승인 요청
+              </button>
+              <button class="ghost-button" type="button" id="activateCampaignButton">
+                테스트 승인
+              </button>
+            </div>
+          </form>
+
+          <section class="result-panel" aria-live="polite">
+            <div class="section-heading">
+              <p>Analysis</p>
+              <h2>상품 카드</h2>
+            </div>
+
+            <div class="product-card">
+              <div class="product-visual" id="productVisual" aria-hidden="true">
+                <div class="product-device">
+                  <span></span>
+                </div>
+              </div>
+              <div class="product-copy">
+                <p class="product-kicker" id="productCategory">생활가전</p>
+                <h3 id="productTitle">Airly 미니 공기청정기</h3>
+                <p id="productSummary">
+                  자취방, 책상, 작은 침실처럼 공간이 좁은 장면에 자연스럽게 들어가는
+                  생활 업그레이드형 상품입니다.
+                </p>
+                <dl class="metric-list">
+                  <div>
+                    <dt>추천 캠페인</dt>
+                    <dd id="campaignType">Product Quest</dd>
+                  </div>
+                  <div>
+                    <dt>주의도</dt>
+                    <dd id="riskLevel">보통</dd>
+                  </div>
+                  <div>
+                    <dt>공유 목표</dt>
+                    <dd id="shareGoal">500 클릭</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="insight-strip" aria-label="캠페인 자동 분석">
+              <div>
+                <span>타깃</span>
+                <strong id="targetAudience">1인 가구, 자취생, 소형가전 관심층</strong>
+              </div>
+              <div>
+                <span>구매 동기</span>
+                <strong id="purchaseMotivation">방 업그레이드, 편의성, 선물</strong>
+              </div>
+              <div>
+                <span>성장 스탯</span>
+                <strong id="growthStat">인지도 + 생활력</strong>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="content-section" id="character-match">
+          <div class="section-heading">
+            <p>Step 2</p>
+            <h2>캐릭터 적합도 추천</h2>
+          </div>
+          <div class="character-grid" id="characterGrid"></div>
+        </section>
+
+        <section class="split-section" id="campaign-brief">
+          <article class="brief-panel">
+            <div class="section-heading">
+              <p>Step 3</p>
+              <h2>캠페인 브리프</h2>
+            </div>
+            <div class="brief-block">
+              <span>캐릭터 훅</span>
+              <p id="storyHook">
+                하린이 팬들의 공유로 자취방 공기를 바꾸는 방 업그레이드 퀘스트를 시작합니다.
+              </p>
+            </div>
+            <div class="brief-block">
+              <span>공유 카피</span>
+              <p id="shareCopy">
+                하린의 방 업그레이드 퀘스트에 참여하고 미니 공기청정기 쿠폰을 받아보세요.
+              </p>
+            </div>
+            <div class="brief-block">
+              <span>금지/검수</span>
+              <p id="complianceCopy">
+                광고 및 AI 캐릭터 콘텐츠 표시가 필요합니다. 의학적 효능 표현은 사용할 수 없습니다.
+              </p>
+            </div>
+          </article>
+
+          <article class="event-panel">
+            <div class="section-heading">
+              <p>Tracking</p>
+              <h2>성장 이벤트</h2>
+            </div>
+            <div class="event-table" role="table" aria-label="캠페인 성장 이벤트">
+              <div role="row">
+                <span role="columnheader">행동</span>
+                <span role="columnheader">스탯</span>
+                <span role="columnheader">포인트</span>
+              </div>
+              <div role="row">
+                <span role="cell">공유링크 클릭</span>
+                <span role="cell">인지도</span>
+                <strong role="cell">+1</strong>
+              </div>
+              <div role="row">
+                <span role="cell">공유</span>
+                <span role="cell">인지도</span>
+                <strong role="cell">+5</strong>
+              </div>
+              <div role="row">
+                <span role="cell">쿠폰/구매</span>
+                <span role="cell">수익력</span>
+                <strong role="cell">+15</strong>
+              </div>
+              <div role="row">
+                <span role="cell">목표 달성</span>
+                <span role="cell">활동</span>
+                <strong role="cell">+30</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="share-section" id="share-preview">
+          <div class="share-toolbar">
+            <div class="section-heading">
+              <p>Step 4</p>
+              <h2>공유링크 미리보기</h2>
+            </div>
+            <div class="share-actions">
+              <code id="shareUrl">fanletter.ai/c/harin-airly-clean-quest</code>
+              <button class="ghost-button" type="button" id="copyShareButton">링크 복사</button>
+            </div>
+          </div>
+
+          <article class="share-preview-card">
+            <div class="share-video" aria-label="9:16 캐릭터 캠페인 프리뷰">
+              <div class="phone-frame">
+                <div class="character-scene">
+                  <div class="window-shape"></div>
+                  <div class="character-avatar" id="avatarMark">하</div>
+                  <div class="scene-product"></div>
+                </div>
+              </div>
+            </div>
+            <div class="share-content">
+              <p class="disclosure-line">광고 · AI 캐릭터 콘텐츠</p>
+              <h3 id="shareTitle">하린의 방 업그레이드 퀘스트</h3>
+              <p id="shareBody">
+                팬들이 500번 클릭하면 하린의 생활력이 오르고 새 방 브이로그가 열립니다.
+              </p>
+              <div class="progress-block">
+                <div class="progress-header">
+                  <span>목표 진행률</span>
+                  <strong id="progressText">0 / 500</strong>
+                </div>
+                <div class="progress-track">
+                  <span id="progressBar"></span>
+                </div>
+              </div>
+              <div class="cta-row">
+                <button class="primary-button" type="button" id="mockClickButton">상품 보기</button>
+                <button class="secondary-button" type="button" id="mockShareButton">공유하기</button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./main.js"></script>
+  </body>
+</html>
